@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: my first workflow
+name: Build and check style
 
 # Controls when the workflow will run
 on:
@@ -32,4 +32,11 @@ jobs:
       
       - name: Try to build my code
         run: dotnet build
+  
+  checkstyle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Super-Linter
+        uses: github/super-linter@v4.9.4
 
